@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadingEdge="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LargeText"
+                android:layout_margin="10dp"
+                android:text="@string/c_info_user" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/LargeText"
+                    android:layout_width="100dp"
+                    android:text="@string/c_user"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/username"
+                    style="@style/EditTextNormal"
+                    android:hint="@string/c_user_hint" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/LargeText"
+                    android:layout_width="100dp"
+                    android:text="@string/c_email"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/account_email"
+                    style="@style/EditTextNormal"
+                    android:hint="@string/account_setup_basics_email_hint"
+                    android:inputType="textEmailAddress" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/LargeText"
+                    android:layout_width="100dp"
+                    android:text="@string/c_pass"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/account_password"
+                    style="@style/EditTextNormal"
+                    android:hint="@string/account_setup_basics_password_hint"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <include layout="@layout/layout_manual_login" />
+
+            <CheckBox
+                android:id="@+id/show_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/account_setup_basics_show_password"
+                android:visibility="gone" />
+
+            <vn.bhxh.bhxhmail.view.ClientCertificateSpinner
+                android:id="@+id/account_client_certificate_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <vn.bhxh.bhxhmail.view.FoldableLinearLayout
+                android:id="@+id/foldable_advanced_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                custom:foldedLabel="@string/client_certificate_advanced_options"
+                custom:unFoldedLabel="@string/client_certificate_advanced_options">
+
+                <CheckBox
+                    android:id="@+id/account_client_certificate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_setup_basics_client_certificate" />
+            </vn.bhxh.bhxhmail.view.FoldableLinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<include layout="@layout/wizard_setup" />-->
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="@color/line_color" />-->
+    <!--<Button-->
+    <!--android:id="@+id/manual_setup"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/selectable_item_background"-->
+    <!--android:text="@string/account_setup_basics_manual_setup_action" />-->
+</LinearLayout>

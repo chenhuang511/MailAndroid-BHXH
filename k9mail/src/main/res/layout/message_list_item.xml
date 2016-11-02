@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/chip"
+            android:layout_width="8dip"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="false"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/selected_checkbox_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:textColor="?android:attr/textColorPrimary"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/selected_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="center"
+                android:paddingLeft="4dp"
+                android:paddingRight="0dp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <QuickContactBadge
+            android:id="@+id/contact_badge"
+            style="?android:attr/quickContactBadgeStyleWindowLarge"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="3dip"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="4dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_contact_picture"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:id="@+id/list_item_inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingBottom="6dp"
+            android:paddingTop="5dip">
+
+            <TextView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/subject_wrapper"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/flagged_bottom_right"
+                android:ellipsize="end"
+                android:gravity="top"
+                android:longClickable="false"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/subject_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/date">
+
+                <View
+                    android:id="@+id/icon_circle"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/circle_blue" />
+
+                <TextView
+                    android:id="@+id/sender_compact"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/subject"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dip"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="0.7"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorPrimary" />
+
+                <TextView
+                    android:id="@+id/thread_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="4dip"
+                    android:background="?attr/messageListThreadCountBackground"
+                    android:focusable="false"
+                    android:paddingBottom="1dip"
+                    android:paddingLeft="4dip"
+                    android:paddingRight="4dip"
+                    android:textColor="?attr/messageListThreadCountForegroundColor" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/flagged_center_right"
+                style="?android:attr/starStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:focusable="false"
+                android:paddingLeft="2dip"
+                android:paddingRight="4dip"
+                android:paddingTop="3dip"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/subject_wrapper"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/flagged_center_right"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <CheckBox
+                android:id="@+id/flagged_bottom_right"
+                style="?android:attr/starStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/date"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="2dip"
+                android:paddingRight="4dip"
+                android:paddingTop="5dip"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

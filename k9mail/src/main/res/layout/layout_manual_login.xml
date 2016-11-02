@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_manual"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <TextView
+        style="@style/LargeText"
+        android:layout_margin="10dp"
+        android:text="@string/c_imap" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_address"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/address_imap"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="imap.conpany.com"
+            android:text="email.vssic.gov.vn" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_acc"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/option_imap"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="@string/c_request" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_pass"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/pass_imap"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="@string/account_setup_basics_password_hint"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <TextView
+        style="@style/LargeText"
+        android:layout_margin="10dp"
+        android:text="@string/c_smtp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_address"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/address_smtp"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="smtp.company.com"
+            android:text="email.vssic.gov.vn" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_acc"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/option_smtp"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="@string/c_option" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LargeText"
+            android:layout_width="100dp"
+            android:text="@string/c_pass"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/pass_smtp"
+            style="@style/EditTextNormal"
+            android:enabled="false"
+            android:hint="@string/account_setup_basics_password_hint"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+</LinearLayout>

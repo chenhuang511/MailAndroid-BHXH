@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View style="@style/LineMenu" />
+
+    <LinearLayout
+        android:id="@+id/menu_layout_item_acc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/menu_acc_name"
+            style="@style/NormalText"
+            android:text="abc@gmail.com"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/menu_acc_email"
+            style="@style/SmallText"
+            android:layout_marginTop="5dp"
+            android:text="abc@gmail.com"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</LinearLayout>

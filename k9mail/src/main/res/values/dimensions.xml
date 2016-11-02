@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_minWidth">100sp</dimen>
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="button_type_size">56dp</dimen>
+    <dimen name="padding_item">4dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp22">22dp</dimen>
+    <dimen name="dp28">28dp</dimen>
+    <dimen name="dp36">36dp</dimen>
+    <dimen name="dp48">48dp</dimen>
+    <dimen name="dp56">56dp</dimen>
+    <dimen name="dp72">72dp</dimen>
+</resources>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/common_title_bar" />
+
+            <RelativeLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ccc"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/input_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_radius"
+                    android:gravity="center"
+                    android:hint="@string/c_search"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <vn.bhxh.bhxhmail.view.ViewSwitcher
+            android:id="@+id/container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <FrameLayout
+                android:id="@+id/message_list_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="50dp" />
+
+            <FrameLayout
+                android:id="@+id/message_view_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+        </vn.bhxh.bhxhmail.view.ViewSwitcher>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/navList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="@color/gray494949"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="onExpand"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_mail_fill" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/c_name"
+                            style="@style/NormalText"
+                            android:text="abc@gmail.com"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:id="@+id/c_email"
+                            style="@style/SmallText"
+                            android:layout_marginTop="5dp"
+                            android:text="abc@gmail.com"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ic_expand"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/ic_expand_down" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_expand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/layout_acc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <View style="@style/LineMenu" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:onClick="onNewAcc"
+                        android:src="@drawable/ic_add_acc" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/LineMenu"
+                    android:background="#aaa" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="clickInbox">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_inbox" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_inbox" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="clickSearch">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_search" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_search" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="clickInbox"
+                    android:visibility="gone">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_attach" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_attach" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="onSentMail">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_sended" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_sended" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="clickInbox"
+                    android:visibility="gone">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_all_mail" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_all_mail" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="onSpamMail">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_block" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_spam" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="onTrashMail">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_bin" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_trash" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="logOut">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_logout" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_logout" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="openAttachDownloads">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_search_mail" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_file_download" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+
+                <LinearLayout
+                    style="@style/LayoutItemMenu"
+                    android:onClick="clickSetting">
+
+                    <ImageView
+                        style="@style/IconMenu"
+                        android:src="@drawable/ic_setting" />
+
+                    <TextView
+                        style="@style/TextViewMenu"
+                        android:text="@string/c_setting" />
+                </LinearLayout>
+
+                <View style="@style/LineMenu" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
