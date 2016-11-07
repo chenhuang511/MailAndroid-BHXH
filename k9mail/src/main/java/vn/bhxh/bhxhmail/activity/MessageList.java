@@ -1762,7 +1762,11 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
 
     public void onSpamMail(View view) {
         setTitleMail(getString(vn.bhxh.bhxhmail.R.string.c_spam));
-        onOpenFolder("Spam");
+        if (mAccount != null && mAccount.getEmail().contains("@gmail")) {
+            onOpenFolder("[Gmail]/Spam");
+        } else {
+            onOpenFolder("Spam");
+        }
     }
 
     public void onTrashMail(View view) {
