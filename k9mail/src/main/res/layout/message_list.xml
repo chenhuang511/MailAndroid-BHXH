@@ -13,29 +13,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/common_title_bar" />
-
-            <RelativeLayout
-                android:id="@+id/layout_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ccc"
-                android:visibility="gone">
-
-                <EditText
-                    android:id="@+id/input_search"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/bg_radius"
-                    android:gravity="center"
-                    android:hint="@string/c_search"
-                    android:imeOptions="actionSearch"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </RelativeLayout>
-
         </LinearLayout>
 
         <vn.bhxh.bhxhmail.view.ViewSwitcher
@@ -43,11 +20,40 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <FrameLayout
-                android:id="@+id/message_list_container"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="50dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/common_title_bar" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ccc"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/input_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/bg_radius"
+                        android:gravity="center"
+                        android:hint="@string/c_search"
+                        android:imeOptions="actionSearch"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/message_list_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+
+            </LinearLayout>
 
             <FrameLayout
                 android:id="@+id/message_view_container"
