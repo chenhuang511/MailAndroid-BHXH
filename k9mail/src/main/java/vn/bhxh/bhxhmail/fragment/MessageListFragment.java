@@ -827,6 +827,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         mListView.setAdapter(mAdapter);
+        mListView.removeFooterView(mFooterView);
     }
 
     private void createCacheBroadcastReceiver(Context appContext) {
@@ -1842,8 +1843,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
             if (read) {
                 holder.circle.setBackgroundResource(vn.bhxh.bhxhmail.R.drawable.circle_gray);
+                holder.preview.setTypeface(null, Typeface.NORMAL);
             } else {
                 holder.circle.setBackgroundResource(vn.bhxh.bhxhmail.R.drawable.circle_blue);
+                holder.preview.setTypeface(null, Typeface.BOLD);
             }
 
             if (mActiveMessage != null) {
