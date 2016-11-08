@@ -8,6 +8,7 @@
     <dimen name="padding_item">4dp</dimen>
     <dimen name="dp1">1dp</dimen>
     <dimen name="divider_size">1dp</dimen>
+    <dimen name="float_size">40dp</dimen>
     <dimen name="dp5">5dp</dimen>
     <dimen name="dp8">8dp</dimen>
     <dimen name="dp10">10dp</dimen>
@@ -20,4 +21,5 @@
     <dimen name="dp72">72dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp2">2dp</dimen>
+    <dimen name="item_mail">64dp</dimen>
 </resources>

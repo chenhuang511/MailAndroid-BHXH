@@ -43,6 +43,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CheckBox;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
@@ -939,6 +940,13 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         mLayoutActionSelected = (RelativeLayout) layout.findViewById(R.id.layout_action_selected);
         TextView delete = (TextView) layout.findViewById(R.id.delete);
         TextView selectAll = (TextView) layout.findViewById(R.id.select_all);
+        ImageView floatBtn = (ImageView) layout.findViewById(R.id.float_button);
+        floatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCompose();
+            }
+        });
         selectAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

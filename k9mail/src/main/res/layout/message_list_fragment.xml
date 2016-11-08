@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
     <vn.bhxh.bhxhmail.view.K9PullToRefreshListView
         android:id="@+id/message_list"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="5" />
-
+        android:layout_height="fill_parent" />
+    <ImageView
+        android:id="@+id/float_button"
+        android:background="@drawable/ic_add_acc"
+        android:layout_margin="@dimen/dp16"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="@dimen/float_size"
+        android:layout_height="@dimen/float_size" />
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/layout_action_selected"
         android:layout_width="match_parent"
