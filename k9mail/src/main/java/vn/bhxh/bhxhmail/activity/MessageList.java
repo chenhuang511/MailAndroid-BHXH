@@ -1786,9 +1786,9 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
         mDrawerLayout.closeDrawer(Gravity.LEFT);
         final List<Account> accounts = Preferences.getPreferences(this).getAccounts();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(vn.bhxh.bhxhmail.R.string.c_logout));
+        builder.setTitle(getString(R.string.c_logout_title));
         builder.setMessage(vn.bhxh.bhxhmail.R.string.c_logout_confirm);
-        builder.setPositiveButton(vn.bhxh.bhxhmail.R.string.c_yes, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.c_ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (accounts.get(mCurrentAcc) instanceof Account) {
@@ -1810,7 +1810,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
                     }
                 }
             }
-        }).setNegativeButton(vn.bhxh.bhxhmail.R.string.c_no, null).show();
+        }).setNegativeButton(vn.bhxh.bhxhmail.R.string.c_back, null).show();
     }
 
     private void refresh() {
