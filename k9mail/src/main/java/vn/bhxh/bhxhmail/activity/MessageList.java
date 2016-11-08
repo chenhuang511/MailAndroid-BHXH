@@ -1669,6 +1669,15 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
         search.addAccountUuid(mAccount.getUuid());
         search.addAllowedFolder(folder);
         MessageList.actionDisplaySearch(this, search, false, false);
+        mDrawerLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mMessageListFragment != null) {
+                    mMessageListFragment.onRefresh();
+                }
+            }
+        }, 500);
+
     }
 
     private void showMenu() {
