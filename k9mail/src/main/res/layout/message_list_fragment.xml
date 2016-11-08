@@ -23,7 +23,7 @@
             android:id="@+id/select_all"
             style="@style/NormalText"
             android:padding="20dp"
-            android:text="@string/c_select_all"
+            android:text="@string/c_move"
             android:textColor="@color/primary_color" />
 
         <TextView

@@ -75,6 +75,7 @@ import vn.bhxh.bhxhmail.Utils;
 import vn.bhxh.bhxhmail.activity.ActivityListener;
 import vn.bhxh.bhxhmail.activity.ChooseFolder;
 import vn.bhxh.bhxhmail.activity.FolderInfoHolder;
+import vn.bhxh.bhxhmail.activity.MessageList;
 import vn.bhxh.bhxhmail.activity.MessageReference;
 import vn.bhxh.bhxhmail.activity.misc.ContactPictureLoader;
 import vn.bhxh.bhxhmail.cache.EmailProviderCache;
@@ -1370,19 +1371,19 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 onForward(getMessageAtPosition(adapterPosition));
                 break;
             }
-            case vn.bhxh.bhxhmail.R.id.send_again: {
-                onResendMessage(getMessageAtPosition(adapterPosition));
-                mSelectedCount = 0;
-                break;
-            }
-            case vn.bhxh.bhxhmail.R.id.same_sender: {
-                Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
-                String senderAddress = getSenderAddressFromCursor(cursor);
-                if (senderAddress != null) {
-                    mFragmentListener.showMoreFromSameSender(senderAddress);
-                }
-                break;
-            }
+//            case vn.bhxh.bhxhmail.R.id.send_again: {
+//                onResendMessage(getMessageAtPosition(adapterPosition));
+//                mSelectedCount = 0;
+//                break;
+//            }
+//            case vn.bhxh.bhxhmail.R.id.same_sender: {
+//                Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
+//                String senderAddress = getSenderAddressFromCursor(cursor);
+//                if (senderAddress != null) {
+//                    mFragmentListener.showMoreFromSameSender(senderAddress);
+//                }
+//                break;
+//            }
             case vn.bhxh.bhxhmail.R.id.delete: {
                 MessageReference message = getMessageAtPosition(adapterPosition);
                 onDelete(message);
@@ -1424,10 +1425,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
 
             // debug options
-            case vn.bhxh.bhxhmail.R.id.debug_delete_locally: {
-                onDebugClearLocally(getMessageAtPosition(adapterPosition));
-                break;
-            }
+//            case vn.bhxh.bhxhmail.R.id.debug_delete_locally: {
+//                onDebugClearLocally(getMessageAtPosition(adapterPosition));
+//                break;
+//            }
         }
 
         mContextMenuUniqueId = 0;
@@ -1453,7 +1454,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         getActivity().getMenuInflater().inflate(vn.bhxh.bhxhmail.R.menu.message_list_item_context, menu);
-        menu.findItem(vn.bhxh.bhxhmail.R.id.debug_delete_locally).setVisible(BuildConfig.DEBUG);
+//        menu.findItem(vn.bhxh.bhxhmail.R.id.debug_delete_locally).setVisible(BuildConfig.DEBUG);
 
         mContextMenuUniqueId = cursor.getLong(mUniqueIdColumn);
         Account account = getAccountFromCursor(cursor);
@@ -2182,8 +2183,12 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         mAdapter.notifyDataSetChanged();
     }
 
-    private void updateActionModeTitle() {
+    public void updateActionModeTitle() {
 //        mActionMode.setTitle(String.format(getString(vn.bhxh.bhxhmail.R.string.actionbar_selected), mSelectedCount));
+        if (getActivity() instanceof MessageList) {
+            MessageList messageList = (MessageList) getActivity();
+            messageList.showCancel(mSelectedCount > 0);
+        }
         if(mSelectedCount > 0){
             mLayoutActionSelected.setVisibility(View.VISIBLE);
         }else{
@@ -2884,6 +2889,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     public void selectAll() {
         setSelectionState(true);
+    }
+
+    public void selectAll(boolean b) {
+        setSelectionState(b);
     }
 
     public void onMoveUp() {

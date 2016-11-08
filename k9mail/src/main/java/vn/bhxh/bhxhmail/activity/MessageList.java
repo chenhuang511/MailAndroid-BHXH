@@ -192,6 +192,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
     private ImageView mIconExpand;
     private TextView mCurrentName;
     private TextView mCurrentEmail;
+    private TextView mCommonCancel;
     private RelativeLayout mLayoutSearch;
     private EditText mInputSearch;
     private ImageView mNew;
@@ -248,6 +249,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
             mTitle = (TextView) findViewById(vn.bhxh.bhxhmail.R.id.common_title);
             mLayoutSearch = (RelativeLayout) findViewById(vn.bhxh.bhxhmail.R.id.layout_search);
             mInputSearch = (EditText) findViewById(vn.bhxh.bhxhmail.R.id.input_search);
+            mCommonCancel = (TextView) findViewById(R.id.common_cancel);
             mMenuSetting.setVisibility(View.VISIBLE);
             mMenuSetting.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -269,6 +271,16 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
                 }
             });
             mNew.setVisibility(View.VISIBLE);
+            mCommonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mMessageListFragment != null) {
+                        mMessageListFragment.selectAll(false);
+                        mMessageListFragment.updateActionModeTitle();
+                        showCancel(false);
+                    }
+                }
+            });
         }
         initializeActionBar();
 
@@ -1834,5 +1846,12 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
         intent.putExtra(EditIdentity.EXTRA_IDENTITY_INDEX, 0);
         mDrawerLayout.closeDrawer(Gravity.LEFT);
         startActivity(intent);
+    }
+
+    public void showCancel(boolean b) {
+        if (mCommonCancel != null) {
+            mCommonCancel.setVisibility(b ? View.VISIBLE : View.GONE);
+            mMenuSetting.setVisibility(b ? View.GONE : View.VISIBLE);
+        }
     }
 }

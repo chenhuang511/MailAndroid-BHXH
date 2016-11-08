@@ -41,8 +41,20 @@
     <string name="c_cc">Cc:</string>
     <string name="c_subject">Subject:</string>
     <string name="c_back">Back</string>
-    <string name="c_select_all">Move</string>
+    <string name="c_move">Move</string>
     <string name="c_delete">Delete</string>
+    <string name="c_cancel">Cancel</string>
+    <string name="c_select">Select</string>
+    <string name="c_deselect">Deselect</string>
+    <string name="c_reply">Reply</string>
+    <string name="c_reply_all">Reply all</string>
+    <string name="c_forward">Forward</string>
+    <string name="c_mark_as_read">Mark as read</string>
+    <string name="c_mark_as_unread">Mark unread</string>
+    <string name="c_archive">Archive</string>
+    <string name="c_copy">Copy</string>
+    <string name="c_add_star">Add star</string>
+    <string name="c_delete_star">Remove star</string>
     <string-array name="c_day_of_month">
         <item>Sunday</item>
         <item>Monday</item>
