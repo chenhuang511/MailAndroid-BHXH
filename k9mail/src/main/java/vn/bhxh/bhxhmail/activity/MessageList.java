@@ -1673,7 +1673,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
             @Override
             public void run() {
                 if (mMessageListFragment != null) {
-                    mMessageListFragment.onRefresh();
+                    mMessageListFragment.onRefresh(false);
                 }
             }
         }, 500);

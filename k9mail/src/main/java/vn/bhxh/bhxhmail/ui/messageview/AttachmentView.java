@@ -1,6 +1,7 @@
 package vn.bhxh.bhxhmail.ui.messageview;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +27,8 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
 
     private Button viewButton;
     private Button downloadButton;
+    private RelativeLayout layoutAttach;
+    private AlertDialog alertDialog;
 
 
     public AttachmentView(Context context, AttributeSet attrs, int defStyle) {
@@ -62,6 +66,7 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
     private void displayAttachmentInformation() {
         viewButton = (Button) findViewById(R.id.view);
         downloadButton = (Button) findViewById(R.id.download);
+        layoutAttach = (RelativeLayout) findViewById(R.id.layout_attach);
 
         if (attachment.size > K9.MAX_ATTACHMENT_DOWNLOAD_SIZE) {
             viewButton.setVisibility(View.GONE);
@@ -70,6 +75,7 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
 
         viewButton.setOnClickListener(this);
         downloadButton.setOnClickListener(this);
+        layoutAttach.setOnClickListener(this);
         downloadButton.setOnLongClickListener(this);
 
         TextView attachmentName = (TextView) findViewById(R.id.attachment_name);
@@ -94,11 +100,17 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.view: {
+                alertDialog.dismiss();
                 onViewButtonClick();
                 break;
             }
             case R.id.download: {
+                alertDialog.dismiss();
                 onSaveButtonClick();
+                break;
+            }
+            case R.id.layout_attach: {
+                showAction();
                 break;
             }
         }
@@ -137,5 +149,21 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
                 .placeholder(R.drawable.attached_image_placeholder)
                 .centerCrop()
                 .into(thumbnailView);
+    }
+
+    public void showAction() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View view = inflate(getContext(), R.layout.layout_attach_action, null);
+        alertDialog = builder.create();
+        alertDialog.setView(view);
+        view.findViewById(R.id.view).setOnClickListener(this);
+        view.findViewById(R.id.download).setOnClickListener(this);
+        view.findViewById(R.id.attach_cancel).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }

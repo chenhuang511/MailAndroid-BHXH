@@ -19,6 +19,7 @@
     <string name="c_search">Tìm kiếm</string>
     <string name="c_inbox">Hộp thư đến</string>
     <string name="c_attach">Thư đính kèm</string>
+    <string name="c_attach_2">Đính kèm:</string>
     <string name="c_sended">Thư đã gửi</string>
     <string name="c_all_mail">Tất cả thư</string>
     <string name="c_spam">Thư rác</string>
@@ -55,6 +56,8 @@
     <string name="c_copy">Sao chép</string>
     <string name="c_add_star">Gắn sao</string>
     <string name="c_delete_star">Bỏ sao</string>
+    <string name="c_open">Mở</string>
+    <string name="c_save">Lưu</string>
     <string-array name="c_day_of_month">
         <item>Chủ nhật</item>
         <item>Thứ 2</item>

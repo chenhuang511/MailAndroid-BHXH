@@ -38,6 +38,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
@@ -1007,6 +1008,19 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 //        mListView.setFastScrollEnabled(true);
         mListView.setScrollingCacheEnabled(false);
         mListView.setOnItemClickListener(this);
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem + visibleItemCount >= totalItemCount) {
+                    onRefresh(true);
+                }
+            }
+        });
 
         registerForContextMenu(mListView);
     }
@@ -3543,7 +3557,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         return mCurrentFolder;
     }
 
-    public void onRefresh() {
+    public void onRefresh(boolean loadMore) {
+        if (!loadMore && (mListView == null || mListView.getAdapter().getCount() > 1)) {
+            return;
+        }
         if (mCurrentFolder != null && !mSearch.isManualSearch() && mCurrentFolder.moreMessages) {
 
             mController.loadMoreMessages(mAccount, mFolderName, null);

@@ -67,16 +67,25 @@
     <!-- Attachments area -->
     <LinearLayout
         android:id="@+id/attachments_container"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/NormalText"
+            android:layout_marginLeft="15dp"
+            android:text="@string/c_attach_2" />
 
         <LinearLayout
             android:id="@+id/attachments"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:orientation="vertical" />
+
+        <View
+            style="@style/Divider"
+            android:layout_margin="10dp" />
+
     </LinearLayout>
 
 </vn.bhxh.bhxhmail.ui.messageview.MessageContainerView>
