@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:id="@+id/common_toolbar"
+    android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="@color/primary_color"
     android:gravity="center_vertical"
@@ -24,6 +24,14 @@
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/common_cancel"
+        style="@style/NormalText"
+        android:layout_marginLeft="10dp"
+        android:text="@string/c_cancel"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/common_title"
         style="@style/NormalText"
         android:layout_width="match_parent"
@@ -37,8 +45,8 @@
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:visibility="gone"
-        android:src="@drawable/icon_send" />
+        android:src="@drawable/icon_send"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/common_ic_new"
@@ -46,19 +54,19 @@
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:visibility="gone"
         android:onClick="onCompose"
-        android:src="@drawable/ic_note" />
+        android:src="@drawable/ic_note"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/common_ic_reply"
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="2dp"
         android:layout_marginRight="65dp"
-        android:visibility="gone"
-        android:src="@drawable/ic_reply" />
+        android:layout_marginTop="2dp"
+        android:src="@drawable/ic_reply"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/common_ic_forward"
@@ -66,8 +74,8 @@
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:visibility="gone"
-        android:src="@drawable/ic_forward" />
+        android:src="@drawable/ic_forward"
+        android:visibility="gone" />
 
     <View
         android:id="@+id/common_ic_send_over"
@@ -75,8 +83,8 @@
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:visibility="gone"
         android:background="@color/primary_color_opacity"
-        android:clickable="true" />
+        android:clickable="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

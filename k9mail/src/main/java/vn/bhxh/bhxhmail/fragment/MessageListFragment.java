@@ -45,6 +45,7 @@ import android.widget.CheckBox;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.QuickContactBadge;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,10 +70,12 @@ import vn.bhxh.bhxhmail.BuildConfig;
 import vn.bhxh.bhxhmail.FontSizes;
 import vn.bhxh.bhxhmail.K9;
 import vn.bhxh.bhxhmail.Preferences;
+import vn.bhxh.bhxhmail.R;
 import vn.bhxh.bhxhmail.Utils;
 import vn.bhxh.bhxhmail.activity.ActivityListener;
 import vn.bhxh.bhxhmail.activity.ChooseFolder;
 import vn.bhxh.bhxhmail.activity.FolderInfoHolder;
+import vn.bhxh.bhxhmail.activity.MessageList;
 import vn.bhxh.bhxhmail.activity.MessageReference;
 import vn.bhxh.bhxhmail.activity.misc.ContactPictureLoader;
 import vn.bhxh.bhxhmail.cache.EmailProviderCache;
@@ -297,6 +300,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     private LocalBroadcastManager mLocalBroadcastManager;
     private BroadcastReceiver mCacheBroadcastReceiver;
     private IntentFilter mCacheIntentFilter;
+    private RelativeLayout mLayoutActionSelected;
 
     /**
      * Stores the unique ID of the message the context menu was opened for.
@@ -932,6 +936,24 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     private void initializePullToRefresh(LayoutInflater inflater, View layout) {
         mPullToRefreshView = (PullToRefreshListView) layout.findViewById(vn.bhxh.bhxhmail.R.id.message_list);
+        mLayoutActionSelected = (RelativeLayout) layout.findViewById(R.id.layout_action_selected);
+        TextView delete = (TextView) layout.findViewById(R.id.delete);
+        TextView selectAll = (TextView) layout.findViewById(R.id.select_all);
+        selectAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMove(getCheckedMessages());
+                mSelectedCount = 0;
+            }
+        });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<MessageReference> messages = getCheckedMessages();
+                onDelete(messages);
+                mSelectedCount = 0;
+            }
+        });
 
         @SuppressLint("InflateParams")
         View loadingView = inflater.inflate(vn.bhxh.bhxhmail.R.layout.message_list_loading, null);
@@ -1349,19 +1371,19 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 onForward(getMessageAtPosition(adapterPosition));
                 break;
             }
-            case vn.bhxh.bhxhmail.R.id.send_again: {
-                onResendMessage(getMessageAtPosition(adapterPosition));
-                mSelectedCount = 0;
-                break;
-            }
-            case vn.bhxh.bhxhmail.R.id.same_sender: {
-                Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
-                String senderAddress = getSenderAddressFromCursor(cursor);
-                if (senderAddress != null) {
-                    mFragmentListener.showMoreFromSameSender(senderAddress);
-                }
-                break;
-            }
+//            case vn.bhxh.bhxhmail.R.id.send_again: {
+//                onResendMessage(getMessageAtPosition(adapterPosition));
+//                mSelectedCount = 0;
+//                break;
+//            }
+//            case vn.bhxh.bhxhmail.R.id.same_sender: {
+//                Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
+//                String senderAddress = getSenderAddressFromCursor(cursor);
+//                if (senderAddress != null) {
+//                    mFragmentListener.showMoreFromSameSender(senderAddress);
+//                }
+//                break;
+//            }
             case vn.bhxh.bhxhmail.R.id.delete: {
                 MessageReference message = getMessageAtPosition(adapterPosition);
                 onDelete(message);
@@ -1403,10 +1425,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
 
             // debug options
-            case vn.bhxh.bhxhmail.R.id.debug_delete_locally: {
-                onDebugClearLocally(getMessageAtPosition(adapterPosition));
-                break;
-            }
+//            case vn.bhxh.bhxhmail.R.id.debug_delete_locally: {
+//                onDebugClearLocally(getMessageAtPosition(adapterPosition));
+//                break;
+//            }
         }
 
         mContextMenuUniqueId = 0;
@@ -1432,7 +1454,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         getActivity().getMenuInflater().inflate(vn.bhxh.bhxhmail.R.menu.message_list_item_context, menu);
-        menu.findItem(vn.bhxh.bhxhmail.R.id.debug_delete_locally).setVisible(BuildConfig.DEBUG);
+//        menu.findItem(vn.bhxh.bhxhmail.R.id.debug_delete_locally).setVisible(BuildConfig.DEBUG);
 
         mContextMenuUniqueId = cursor.getLong(mUniqueIdColumn);
         Account account = getAccountFromCursor(cursor);
@@ -2082,19 +2104,19 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 }
             }
 
-            if (mActionMode == null) {
-                startAndPrepareActionMode();
-            }
+//            if (mActionMode == null) {
+//                startAndPrepareActionMode();
+//            }
             computeBatchDirection();
             updateActionModeTitle();
             computeSelectAllVisibility();
         } else {
             mSelected.clear();
             mSelectedCount = 0;
-            if (mActionMode != null) {
-                mActionMode.finish();
-                mActionMode = null;
-            }
+//            if (mActionMode != null) {
+//                mActionMode.finish();
+//                mActionMode = null;
+//            }
         }
 
         mAdapter.notifyDataSetChanged();
@@ -2119,50 +2141,59 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     private void toggleMessageSelectWithAdapterPosition(int adapterPosition) {
 //        hainv edited
 
-//        Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
-//        long uniqueId = cursor.getLong(mUniqueIdColumn);
-//
-//        boolean selected = mSelected.contains(uniqueId);
-//        if (!selected) {
-//            mSelected.add(uniqueId);
-//        } else {
-//            mSelected.remove(uniqueId);
-//        }
-//
-//        int selectedCountDelta = 1;
-//        if (mThreadedList) {
-//            int threadCount = cursor.getInt(THREAD_COUNT_COLUMN);
-//            if (threadCount > 1) {
-//                selectedCountDelta = threadCount;
-//            }
-//        }
-//
-//        if (mActionMode != null) {
-//            if (mSelectedCount == selectedCountDelta && selected) {
+        Cursor cursor = (Cursor) mAdapter.getItem(adapterPosition);
+        long uniqueId = cursor.getLong(mUniqueIdColumn);
+
+        boolean selected = mSelected.contains(uniqueId);
+        if (!selected) {
+            mSelected.add(uniqueId);
+        } else {
+            mSelected.remove(uniqueId);
+        }
+
+        int selectedCountDelta = 1;
+        if (mThreadedList) {
+            int threadCount = cursor.getInt(THREAD_COUNT_COLUMN);
+            if (threadCount > 1) {
+                selectedCountDelta = threadCount;
+            }
+        }
+
+        if (mActionMode != null) {
+            if (mSelectedCount == selectedCountDelta && selected) {
 //                mActionMode.finish();
 //                mActionMode = null;
-//                return;
-//            }
-//        } else {
+                return;
+            }
+        } else {
 //            startAndPrepareActionMode();
-//        }
-//
-//        if (selected) {
-//            mSelectedCount -= selectedCountDelta;
-//        } else {
-//            mSelectedCount += selectedCountDelta;
-//        }
-//
-//        computeBatchDirection();
-//        updateActionModeTitle();
-//
-//        computeSelectAllVisibility();
-//
-//        mAdapter.notifyDataSetChanged();
+        }
+
+        if (selected) {
+            mSelectedCount -= selectedCountDelta;
+        } else {
+            mSelectedCount += selectedCountDelta;
+        }
+
+        computeBatchDirection();
+        updateActionModeTitle();
+
+        computeSelectAllVisibility();
+
+        mAdapter.notifyDataSetChanged();
     }
 
-    private void updateActionModeTitle() {
-        mActionMode.setTitle(String.format(getString(vn.bhxh.bhxhmail.R.string.actionbar_selected), mSelectedCount));
+    public void updateActionModeTitle() {
+//        mActionMode.setTitle(String.format(getString(vn.bhxh.bhxhmail.R.string.actionbar_selected), mSelectedCount));
+        if (getActivity() instanceof MessageList) {
+            MessageList messageList = (MessageList) getActivity();
+            messageList.showCancel(mSelectedCount > 0);
+        }
+        if(mSelectedCount > 0){
+            mLayoutActionSelected.setVisibility(View.VISIBLE);
+        }else{
+            mLayoutActionSelected.setVisibility(View.GONE);
+        }
     }
 
     private void computeSelectAllVisibility() {
@@ -2860,6 +2891,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         setSelectionState(true);
     }
 
+    public void selectAll(boolean b) {
+        setSelectionState(b);
+    }
+
     public void onMoveUp() {
         int currentPosition = mListView.getSelectedItemPosition();
         if (currentPosition == AdapterView.INVALID_POSITION || mListView.isInTouchMode()) {
@@ -3395,8 +3430,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     }
 
     private void startAndPrepareActionMode() {
-        mActionMode = getActivity().startActionMode(mActionModeCallback);
-        mActionMode.invalidate();
+//        mActionMode = getActivity().startActionMode(mActionModeCallback);
+//        mActionMode.invalidate();
     }
 
     /**

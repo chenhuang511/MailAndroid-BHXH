@@ -41,6 +41,20 @@
     <string name="c_cc">Cc:</string>
     <string name="c_subject">Chủ đề:</string>
     <string name="c_back">Back</string>
+    <string name="c_move">Di chuyển</string>
+    <string name="c_delete">Xóa</string>
+    <string name="c_cancel">Bỏ qua</string>
+    <string name="c_select">Chọn</string>
+    <string name="c_deselect">Bỏ Chọn</string>
+    <string name="c_reply">Trả lời</string>
+    <string name="c_reply_all">Trả lời tất cả</string>
+    <string name="c_forward">Chuyển</string>
+    <string name="c_mark_as_read">Đánh dấu đã đọc</string>
+    <string name="c_mark_as_unread">Đánh dấu chưa đọc</string>
+    <string name="c_archive">Lưu trữ</string>
+    <string name="c_copy">Sao chép</string>
+    <string name="c_add_star">Gắn sao</string>
+    <string name="c_delete_star">Bỏ sao</string>
     <string-array name="c_day_of_month">
         <item>Chủ nhật</item>
         <item>Thứ 2</item>
