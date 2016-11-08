@@ -14,6 +14,7 @@
     <string name="c_user_hint">Người dùng</string>
     <string name="c_email">Hòm thư:</string>
     <string name="c_pass">Mật khẩu:</string>
+    <string name="c_pass_2">Mật khẩu</string>
     <string name="c_ok">Đồng ý</string>
     <string name="c_search">Tìm kiếm</string>
     <string name="c_inbox">Hộp thư đến</string>

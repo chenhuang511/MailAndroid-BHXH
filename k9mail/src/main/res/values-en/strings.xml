@@ -14,6 +14,7 @@
     <string name="c_user_hint">Username</string>
     <string name="c_email">Email:</string>
     <string name="c_pass">Password:</string>
+    <string name="c_pass_2">Password</string>
     <string name="c_ok">OK</string>
     <string name="c_search">Search</string>
     <string name="c_inbox">Inbox</string>
