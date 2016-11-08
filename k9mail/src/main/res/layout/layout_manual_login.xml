@@ -7,29 +7,29 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:background="@color/divider" />
 
     <TextView
         style="@style/LargeText"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp8"
         android:text="@string/c_imap" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/LargeText"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/dp100"
             android:text="@string/c_address"
             android:textColor="@android:color/black" />
 
@@ -44,20 +44,20 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:layout_marginLeft="@dimen/dp8"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/LargeText"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/dp100"
             android:text="@string/c_acc"
             android:textColor="@android:color/black" />
 
@@ -71,22 +71,23 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:layout_marginLeft="@dimen/dp8"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/LargeText"
-            android:layout_width="100dp"
-            android:text="@string/c_pass"
-            android:textColor="@android:color/black" />
+            android:layout_width="@dimen/dp100"
+            android:text="@string/c_pass_2"
+            android:textColor="@android:color/black"
+            android:id="@+id/textView2" />
 
         <EditText
             android:id="@+id/pass_imap"
@@ -98,23 +99,23 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:background="@color/divider" />
 
     <TextView
         style="@style/LargeText"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp8"
         android:text="@string/c_smtp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -135,20 +136,20 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:layout_marginLeft="@dimen/dp8"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/LargeText"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/dp100"
             android:text="@string/c_acc"
             android:textColor="@android:color/black" />
 
@@ -162,21 +163,21 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:background="@color/line_color" />
+        android:layout_height="@dimen/divider_size"
+        android:layout_marginLeft="@dimen/dp8"
+        android:background="@color/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_height="@dimen/item_type_size"
+        android:layout_marginLeft="@dimen/dp8"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/LargeText"
-            android:layout_width="100dp"
-            android:text="@string/c_pass"
+            android:layout_width="@dimen/dp100"
+            android:text="@string/c_pass_2"
             android:textColor="@android:color/black" />
 
         <EditText

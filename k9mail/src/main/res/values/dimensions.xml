@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="button_minWidth">100sp</dimen>
-    <dimen name="text_normal">16sp</dimen>
-    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_large">16sp</dimen>
     <dimen name="button_type_size">48dp</dimen>
+    <dimen name="item_type_size">44dp</dimen>
     <dimen name="padding_item">4dp</dimen>
     <dimen name="dp1">1dp</dimen>
     <dimen name="divider_size">1dp</dimen>
@@ -17,5 +18,6 @@
     <dimen name="dp48">48dp</dimen>
     <dimen name="dp56">56dp</dimen>
     <dimen name="dp72">72dp</dimen>
+    <dimen name="dp100">100dp</dimen>
     <dimen name="dp2">2dp</dimen>
 </resources>
