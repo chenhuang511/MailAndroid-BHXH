@@ -35,6 +35,7 @@
                     android:visibility="gone">
 
                     <EditText
+                        android:textSize="@dimen/text_normal"
                         android:id="@+id/input_search"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
