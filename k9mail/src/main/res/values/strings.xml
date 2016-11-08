@@ -41,6 +41,8 @@
     <string name="c_cc">Cc:</string>
     <string name="c_subject">Chủ đề:</string>
     <string name="c_back">Back</string>
+    <string name="c_select_all">Di chuyển</string>
+    <string name="c_delete">Xóa</string>
     <string-array name="c_day_of_month">
         <item>Chủ nhật</item>
         <item>Thứ 2</item>

@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vn.bhxh.bhxhmail.view.K9PullToRefreshListView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/message_list"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_weight="5" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <vn.bhxh.bhxhmail.view.K9PullToRefreshListView
+        android:id="@+id/message_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="5" />
+
+    <RelativeLayout
+        android:id="@+id/layout_action_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:id="@+id/select_all"
+            style="@style/NormalText"
+            android:padding="20dp"
+            android:text="@string/c_select_all"
+            android:textColor="@color/primary_color" />
+
+        <TextView
+            android:id="@+id/delete"
+            style="@style/NormalText"
+            android:layout_alignParentRight="true"
+            android:padding="20dp"
+            android:text="@string/c_delete"
+            android:textColor="@color/primary_color" />
+
+    </RelativeLayout>
+</LinearLayout>

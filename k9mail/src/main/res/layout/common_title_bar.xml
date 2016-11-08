@@ -24,6 +24,12 @@
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/common_cancel"
+        style="@style/NormalText"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/common_title"
         style="@style/NormalText"
         android:layout_width="match_parent"

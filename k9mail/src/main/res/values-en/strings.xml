@@ -41,6 +41,8 @@
     <string name="c_cc">Cc:</string>
     <string name="c_subject">Subject:</string>
     <string name="c_back">Back</string>
+    <string name="c_select_all">Move</string>
+    <string name="c_delete">Delete</string>
     <string-array name="c_day_of_month">
         <item>Sunday</item>
         <item>Monday</item>
