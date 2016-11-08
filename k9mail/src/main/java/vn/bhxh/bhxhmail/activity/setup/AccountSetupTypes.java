@@ -41,6 +41,12 @@ public class AccountSetupTypes extends K9Activity {
         intent.putExtra("IS_MANUAL", false);
         startActivity(intent);
     }
+    public void onLoginGmail(View view) {
+        Intent intent = new Intent(this, AccountSetupBasics.class);
+        intent.putExtra("IS_MANUAL", false);
+        intent.putExtra("IS_GMAIL", true);
+        startActivity(intent);
+    }
 
     public void onLoginManual(View view) {
         Intent intent = new Intent(this, AccountSetupBasics.class);

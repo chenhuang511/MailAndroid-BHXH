@@ -85,6 +85,7 @@ public class AccountSetupBasics extends K9Activity
     private EditText mInputNameSmtp;
     private EditText mInputMailSmtp;
     private EditText mInputPassSmtp;
+    private boolean mIsGmail;
 
     public static void actionNewAccount(Context context) {
         Intent i = new Intent(context, AccountSetupBasics.class);
@@ -117,6 +118,7 @@ public class AccountSetupBasics extends K9Activity
         mNextButtonOver.setVisibility(View.VISIBLE);
         mBack.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(this);
+        mIsGmail = getIntent().getBooleanExtra("IS_GMAIL", false);
         if (getIntent().getBooleanExtra("IS_MANUAL", false)) {
             mLayoutManual.setVisibility(View.VISIBLE);
         } else
@@ -278,6 +280,9 @@ public class AccountSetupBasics extends K9Activity
         boolean clientCertificateChecked = mClientCertificateCheckBox.isChecked();
         String clientCertificateAlias = mClientCertificateSpinner.getAlias();
         String email = mEmailView.getText().toString();
+        if (mIsGmail && !email.endsWith("@gmail.com")) {
+            email = email + "@gmail.com";
+        }
         String emailImap = mInputNameImap.getText().toString();
         String emailSmtp = mInputNameSmtp.getText().toString();
 
@@ -433,6 +438,10 @@ public class AccountSetupBasics extends K9Activity
         }
 
         String email = mEmailView.getText().toString();
+        if (mIsGmail && !email.endsWith("@gmail.com")) {
+            email = email + "@gmail.com";
+            mEmailView.setText(email);
+        }
         String[] emailParts = splitEmail(email);
         String domain = emailParts[1];
         mProvider = findProviderForDomain(domain);
