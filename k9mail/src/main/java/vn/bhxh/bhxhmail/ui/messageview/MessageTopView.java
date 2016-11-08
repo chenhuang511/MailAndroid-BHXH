@@ -75,12 +75,12 @@ public class MessageTopView extends LinearLayout {
         setShowPicturesButtonListener();
         //hainv edit
         hideShowPicturesButton();
-        showPicturesButton.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showPicturesInAllContainerViews();
-            }
-        }, 1000);
+//        showPicturesButton.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                showPicturesInAllContainerViews();
+//            }
+//        }, 1000);
 
 
         containerView = (ViewGroup) findViewById(vn.bhxh.bhxhmail.R.id.message_container);

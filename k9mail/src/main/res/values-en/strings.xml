@@ -19,6 +19,7 @@
     <string name="c_search">Search</string>
     <string name="c_inbox">Inbox</string>
     <string name="c_attach">Attack Mail</string>
+    <string name="c_attach_2">Attack:</string>
     <string name="c_sended">Sent</string>
     <string name="c_all_mail">All Mail</string>
     <string name="c_spam">Spam</string>
@@ -55,6 +56,8 @@
     <string name="c_copy">Copy</string>
     <string name="c_add_star">Add star</string>
     <string name="c_delete_star">Remove star</string>
+    <string name="c_open">Open</string>
+    <string name="c_save">Save</string>
     <string-array name="c_day_of_month">
         <item>Sunday</item>
         <item>Monday</item>

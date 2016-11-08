@@ -396,7 +396,8 @@ public class MessageContainerView extends LinearLayout implements OnLayoutChange
         String textToDisplay = messageViewInfo.text;
         if (textToDisplay != null && !isShowingPictures()) {
             if (Utility.hasExternalImages(textToDisplay)) {
-                if (automaticallyLoadPictures) {
+//                hainv edited
+                if (true) {
                     setLoadPictures(true);
                 } else {
                     hasHiddenExternalImages = true;
