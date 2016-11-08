@@ -3542,4 +3542,30 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     public FolderInfoHolder getCurrentFolder() {
         return mCurrentFolder;
     }
+
+    public void onRefresh() {
+        if (mCurrentFolder != null && !mSearch.isManualSearch() && mCurrentFolder.moreMessages) {
+
+            mController.loadMoreMessages(mAccount, mFolderName, null);
+
+        } else if (mCurrentFolder != null && isRemoteSearch() &&
+                mExtraSearchResults != null && mExtraSearchResults.size() > 0) {
+
+            int numResults = mExtraSearchResults.size();
+            int limit = mAccount.getRemoteSearchNumResults();
+
+            List<Message> toProcess = mExtraSearchResults;
+
+            if (limit > 0 && numResults > limit) {
+                toProcess = toProcess.subList(0, limit);
+                mExtraSearchResults = mExtraSearchResults.subList(limit,
+                        mExtraSearchResults.size());
+            } else {
+                mExtraSearchResults = null;
+                updateFooter(null);
+            }
+
+            mController.loadSearchResults(mAccount, mCurrentFolder.name, toProcess, mListener);
+        }
+    }
 }
