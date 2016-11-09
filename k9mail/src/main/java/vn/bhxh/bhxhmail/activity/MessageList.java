@@ -195,7 +195,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
     private TextView mCommonCancel;
     private RelativeLayout mLayoutSearch;
     private EditText mInputSearch;
-    private ImageView mNew;
+    private ImageView mSearchTitlebar;
     private int mCurrentAcc;
     private int mLangCode;
     private SharedPreferences sharedPreferences;
@@ -243,7 +243,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
             mDrawerLayout = (DrawerLayout) findViewById(vn.bhxh.bhxhmail.R.id.drawer_layout);
             mMenuSetting = (ImageView) findViewById(vn.bhxh.bhxhmail.R.id.ic_menu);
             mIconExpand = (ImageView) findViewById(vn.bhxh.bhxhmail.R.id.ic_expand);
-            mNew = (ImageView) findViewById(vn.bhxh.bhxhmail.R.id.common_ic_new);
+            mSearchTitlebar = (ImageView) findViewById(vn.bhxh.bhxhmail.R.id.common_ic_search);
             mCurrentName = (TextView) findViewById(vn.bhxh.bhxhmail.R.id.c_name);
             mCurrentEmail = (TextView) findViewById(vn.bhxh.bhxhmail.R.id.c_email);
             mTitle = (TextView) findViewById(vn.bhxh.bhxhmail.R.id.common_title);
@@ -258,7 +258,28 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
                 }
             });
             mTitle.setText(getString(R.string.c_inbox));
-//            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+                @Override
+                public void onDrawerSlide(View drawerView, float slideOffset) {
+
+                }
+
+                @Override
+                public void onDrawerOpened(View drawerView) {
+                    mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+                }
+
+                @Override
+                public void onDrawerClosed(View drawerView) {
+                    mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+                }
+
+                @Override
+                public void onDrawerStateChanged(int newState) {
+
+                }
+            });
 
             mInputSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
@@ -270,7 +291,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
                     return false;
                 }
             });
-            mNew.setVisibility(View.VISIBLE);
+            mSearchTitlebar.setVisibility(View.VISIBLE);
             mCommonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -1658,7 +1679,7 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
     }
 
     public void clickSearch(View view) {
-        mDrawerLayout.closeDrawer(Gravity.LEFT);
+//        mDrawerLayout.closeDrawer(Gravity.LEFT);
         mLayoutSearch.setVisibility(View.VISIBLE);
     }
 
