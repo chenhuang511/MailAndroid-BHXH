@@ -5,14 +5,15 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-    <vn.bhxh.bhxhmail.view.K9PullToRefreshListView
+        android:layout_height="fill_parent"
+        android:layout_weight="5">
+        <vn.bhxh.bhxhmail.view.K9PullToRefreshListView
         android:id="@+id/message_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
     <ImageView
         android:id="@+id/float_button"
-        android:background="@drawable/ic_add_acc"
+        android:background="@drawable/ic_create_mail"
         android:layout_margin="@dimen/dp16"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
