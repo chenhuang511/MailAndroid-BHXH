@@ -171,20 +171,20 @@
 
                 <View style="@style/LineMenu" />
 
-                <LinearLayout
-                    style="@style/LayoutItemMenu"
-                    android:onClick="clickSearch">
+                <!--<LinearLayout-->
+                    <!--style="@style/LayoutItemMenu"-->
+                    <!--android:onClick="clickSearch">-->
 
-                    <ImageView
-                        style="@style/IconMenu"
-                        android:src="@drawable/ic_search" />
+                    <!--<ImageView-->
+                        <!--style="@style/IconMenu"-->
+                        <!--android:src="@drawable/ic_search" />-->
 
-                    <TextView
-                        style="@style/TextViewMenu"
-                        android:text="@string/c_search" />
-                </LinearLayout>
+                    <!--<TextView-->
+                        <!--style="@style/TextViewMenu"-->
+                        <!--android:text="@string/c_search" />-->
+                <!--</LinearLayout>-->
 
-                <View style="@style/LineMenu" />
+                <!--<View style="@style/LineMenu" />-->
 
                 <LinearLayout
                     style="@style/LayoutItemMenu"

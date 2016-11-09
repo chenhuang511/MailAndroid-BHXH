@@ -59,6 +59,16 @@
         android:visibility="gone" />
 
     <ImageView
+        android:id="@+id/common_ic_search"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:onClick="clickSearch"
+        android:src="@drawable/ic_search_titlebar"
+        android:visibility="gone" />
+
+    <ImageView
         android:id="@+id/common_ic_reply"
         android:layout_width="23dp"
         android:layout_height="23dp"
