@@ -400,9 +400,13 @@ public class Accounts extends K9ListActivity implements OnItemClickListener {
             onImport();
         } else if (accounts.size() < 1) {
 //            WelcomeMessage.showWelcomeMessage(this);
+
+//            Intent i = new Intent(this, AccountSetupTypes.class);
+//            startActivity(i);
+            Intent intentX = new Intent(this, AccountSetupBasics.class);
+            intentX.putExtra("IS_MANUAL", true);
+            startActivity(intentX);
             finish();
-            Intent i = new Intent(this, AccountSetupTypes.class);
-            startActivity(i);
             return;
         }
 

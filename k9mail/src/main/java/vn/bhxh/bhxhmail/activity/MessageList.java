@@ -54,6 +54,7 @@ import vn.bhxh.bhxhmail.R;
 import vn.bhxh.bhxhmail.activity.compose.MessageActions;
 import vn.bhxh.bhxhmail.activity.misc.SwipeGestureDetector.OnSwipeGestureListener;
 import vn.bhxh.bhxhmail.activity.setup.AccountSettings;
+import vn.bhxh.bhxhmail.activity.setup.AccountSetupBasics;
 import vn.bhxh.bhxhmail.activity.setup.AccountSetupTypes;
 import vn.bhxh.bhxhmail.activity.setup.FolderSettings;
 import vn.bhxh.bhxhmail.activity.setup.Prefs;
@@ -1794,7 +1795,9 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
 
     public void onNewAcc(View view){
         mDrawerLayout.closeDrawer(Gravity.LEFT);
-        startActivity(new Intent(MessageList.this, AccountSetupTypes.class));
+        Intent intent = new Intent(MessageList.this, AccountSetupBasics.class);
+        intent.putExtra("IS_MANUAL", true);
+        startActivity(intent);
     }
 
     public void onSentMail(View view) {
@@ -1845,7 +1848,9 @@ public class MessageList extends K9Activity implements MessageListFragment.Messa
                             .deleteAccount(realAccount);
                     K9.setServicesEnabled(MessageList.this);
                     if (accounts.size() == 1) {
-                        startActivity(new Intent(MessageList.this, AccountSetupTypes.class));
+                        Intent intent = new Intent(MessageList.this, AccountSetupBasics.class);
+                        intent.putExtra("IS_MANUAL", true);
+                        startActivity(intent);
                         finish();
                     }else {
                         refresh();
