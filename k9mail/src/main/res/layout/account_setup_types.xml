@@ -14,13 +14,11 @@
         android:orientation="vertical">
 
         <View
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider" />
 
         <LinearLayout
-            android:visibility="gone"
             android:padding="@dimen/padding_item"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_type_size"
@@ -34,13 +32,11 @@
         </LinearLayout>
 
         <View
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider" />
 
         <LinearLayout
-            android:visibility="gone"
             android:padding="@dimen/padding_item"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_type_size"
@@ -55,13 +51,11 @@
         </LinearLayout>
 
         <View
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider" />
 
         <LinearLayout
-            android:visibility="gone"
             android:padding="@dimen/dp2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_type_size"
