@@ -80,6 +80,7 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
         i.putExtra(EXTRA_ACCOUNT, account.getUuid());
         i.putExtra(EXTRA_CHECK_DIRECTION, direction);
         context.startActivityForResult(i, ACTIVITY_REQUEST_CODE);
+        context.overridePendingTransition(0,0);
     }
 
     @Override
@@ -427,7 +428,12 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
                 }
 
                 setResult(RESULT_OK);
-                finish();
+                mProgressBar.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                },1000);
 
             } catch (AuthenticationFailedException afe) {
                 Log.e(K9.LOG_TAG, "Error while testing settings", afe);

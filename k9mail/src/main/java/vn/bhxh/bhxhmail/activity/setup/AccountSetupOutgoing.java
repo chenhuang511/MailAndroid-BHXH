@@ -72,6 +72,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
         i.putExtra(EXTRA_MAKE_DEFAULT, makeDefault);
         i.putExtra(AccountExtras.KEY_EXTRAS, accountExtras);
         context.startActivity(i);
+        ((K9Activity) context).overridePendingTransition(0, 0);
     }
 
     public static void actionEditOutgoingSettings(Context context, Account account) {
