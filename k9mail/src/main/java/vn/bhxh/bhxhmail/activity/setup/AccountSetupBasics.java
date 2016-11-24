@@ -125,7 +125,7 @@ public class AccountSetupBasics extends K9Activity
         mIsGmail = getIntent().getBooleanExtra("IS_GMAIL", false);
         mTitle.setText(getString(R.string.c_login));
         if (getIntent().getBooleanExtra("IS_MANUAL", false)) {
-            mLayoutManual.setVisibility(View.VISIBLE);
+            mLayoutManual.setVisibility(View.GONE);
         } else
             mLayoutManual.setVisibility(View.GONE);
     }
@@ -146,6 +146,7 @@ public class AccountSetupBasics extends K9Activity
                 validateFields();
                 mInputNameImap.setText(s.toString());
                 mInputNameSmtp.setText(s.toString());
+                mUserName.setText(s.toString());
             }
         });
         mPasswordView.addTextChangedListener(new TextWatcher() {
