@@ -22,6 +22,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -33,6 +34,7 @@ import vn.bhxh.bhxhmail.AccountExtras;
 import vn.bhxh.bhxhmail.EmailAddressValidator;
 import vn.bhxh.bhxhmail.K9;
 import vn.bhxh.bhxhmail.Preferences;
+import vn.bhxh.bhxhmail.R;
 import vn.bhxh.bhxhmail.Utils;
 import vn.bhxh.bhxhmail.account.AccountCreator;
 import vn.bhxh.bhxhmail.activity.Accounts;
@@ -79,6 +81,7 @@ public class AccountSetupBasics extends K9Activity
     private boolean mCheckedIncoming = false;
     private CheckBox mShowPasswordCheckBox;
     private ImageView mBack;
+    private TextView mTitle;
     private EditText mInputNameImap;
     private EditText mInputMailImap;
     private EditText mInputPassImap;
@@ -106,6 +109,7 @@ public class AccountSetupBasics extends K9Activity
         mUserName = (EditText) findViewById(vn.bhxh.bhxhmail.R.id.username);
         mShowPasswordCheckBox = (CheckBox) findViewById(vn.bhxh.bhxhmail.R.id.show_password);
         mBack = (ImageView) findViewById(vn.bhxh.bhxhmail.R.id.common_ic_back);
+        mTitle = (TextView) findViewById(R.id.common_title);
         mLayoutManual = (LinearLayout) findViewById(vn.bhxh.bhxhmail.R.id.layout_manual);
         mInputMailImap = (EditText) findViewById(vn.bhxh.bhxhmail.R.id.address_imap);
         mInputMailSmtp = (EditText) findViewById(vn.bhxh.bhxhmail.R.id.address_smtp);
@@ -119,6 +123,7 @@ public class AccountSetupBasics extends K9Activity
         mBack.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(this);
         mIsGmail = getIntent().getBooleanExtra("IS_GMAIL", false);
+        mTitle.setText(getString(R.string.c_login));
         if (getIntent().getBooleanExtra("IS_MANUAL", false)) {
             mLayoutManual.setVisibility(View.VISIBLE);
         } else
