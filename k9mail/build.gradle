@@ -66,15 +66,17 @@ android {
     }
 
     signingConfigs {
-        release
+        release {
+            storeFile file("bhxh_key.jks")
+            storePassword "123456"
+            keyAlias "bhxh_mail"
+            keyPassword "123456"
+        }
     }
 
     buildTypes {
         release {
-            if (project.hasProperty('storeFile')) {
-                signingConfig signingConfigs.release
-            }
-
+            signingConfig signingConfigs.release
             buildConfigField "boolean", "DEVELOPER_MODE", "false"
         }
 
