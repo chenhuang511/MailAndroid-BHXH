@@ -76,6 +76,8 @@
     <string name="setting_user_sign">Chữ ký người dùng</string>
     <string name="setting_sign_default">Gửi từ đi động của tôi</string>
     <string name="setting_app_info">Thông tin ứng dụng</string>
+    <string name="setting_advance">Nâng cao</string>
+    <string name="setting_auto_refresh">Làm mới hộp thư</string>
     <string name="setting_version">Phiên bản %s</string>
     <string name="setting_rate">Đánh giá ứng dụng</string>
     <string name="setting_feedback">Góp ý và báo lỗi</string>

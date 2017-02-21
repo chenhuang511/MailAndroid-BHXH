@@ -11,6 +11,8 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -21,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +31,7 @@ import java.util.Locale;
 import vn.bhxh.bhxhmail.Account;
 import vn.bhxh.bhxhmail.Identity;
 import vn.bhxh.bhxhmail.Preferences;
+import vn.bhxh.bhxhmail.R;
 import vn.bhxh.bhxhmail.activity.compose.MessageActions;
 
 /**
@@ -36,6 +40,7 @@ import vn.bhxh.bhxhmail.activity.compose.MessageActions;
 public class SettingOptionsActivity extends K9Activity implements View.OnClickListener {
     private ImageView mBack;
     private TextView mVersion;
+    private TextView mRefresh;
     private String version;
     private Switch mSignSw;
     private EditText mSignEd;
@@ -44,6 +49,7 @@ public class SettingOptionsActivity extends K9Activity implements View.OnClickLi
     private Account mAccount;
     private String accountUuid;
     private TextView mTitle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +110,31 @@ public class SettingOptionsActivity extends K9Activity implements View.OnClickLi
             }
         });
 
+        mRefresh = (TextView) findViewById(vn.bhxh.bhxhmail.R.id.auto_refresh);
+        mRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerForContextMenu(mRefresh);
+                openContextMenu(mRefresh);
+            }
+        });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Tự động làm mới sau: ");
+        menu.add(0, v.getId(), 0, "10 phút");//groupId, itemId, order, title
+        menu.add(0, v.getId(), 0, "30 phút");
+        menu.add(0, v.getId(), 0, "1 giờ");
+        menu.add(0, v.getId(), 0, "12 ");
+        menu.add(0, v.getId(), 0, "Bỏ qua");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        Toast.makeText(getApplicationContext(), "Thiết lập thành công", Toast.LENGTH_LONG).show();
+        return super.onContextItemSelected(item);
     }
 
     @Override

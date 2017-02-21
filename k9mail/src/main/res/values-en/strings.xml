@@ -18,8 +18,8 @@
     <string name="c_ok">OK</string>
     <string name="c_search">Search</string>
     <string name="c_inbox">Inbox</string>
-    <string name="c_attach">Attack Mail</string>
-    <string name="c_attach_2">Attack:</string>
+    <string name="c_attach">Attach Mail</string>
+    <string name="c_attach_2">Attach:</string>
     <string name="c_sended">Sent</string>
     <string name="c_all_mail">All Mail</string>
     <string name="c_spam">Spam</string>
@@ -76,6 +76,8 @@
     <string name="setting_user_sign">Signature</string>
     <string name="setting_sign_default">Sent from my phone</string>
     <string name="setting_app_info">Application info</string>
+    <string name="setting_advance">Advance</string>
+    <string name="setting_auto_refresh">Auto refresh mail box</string>
     <string name="setting_version">Version %s</string>
     <string name="setting_rate">Rate app</string>
     <string name="setting_feedback">Feedback</string>

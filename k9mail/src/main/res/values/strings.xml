@@ -81,7 +81,7 @@
     <string name="setting_feedback">Góp ý và báo lỗi</string>
     <string name="setting_licence">Chính sách bảo mật</string>
     <string name="subject_feedback">Feedback version %s</string>
-    <string name="email_feedback">tuanpt@hanoi.vssic.gov.vn</string>
+    <string name="email_feedback">gopy@ttcntt.vssic.gov.vn</string>
     <string-array name="languages_available">
         <item>English</item>
         <item>Tiếng Việt</item>

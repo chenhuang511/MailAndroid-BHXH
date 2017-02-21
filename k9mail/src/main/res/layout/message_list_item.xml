@@ -53,8 +53,7 @@
             android:layout_marginRight="8dip"
             android:layout_marginTop="4dip"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_contact_picture"
-            android:visibility="gone" />
+            android:src="@drawable/ic_contact_picture" />
 
 
         <RelativeLayout
