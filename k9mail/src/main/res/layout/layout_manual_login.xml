@@ -38,7 +38,7 @@
             style="@style/EditTextNormal"
             android:enabled="false"
             android:hint="imap.conpany.com"
-            android:text="email.vssic.gov.vn" />
+            android:text="imap.vss.gov.vn" />
 
     </LinearLayout>
 
@@ -130,7 +130,7 @@
             style="@style/EditTextNormal"
             android:enabled="false"
             android:hint="smtp.company.com"
-            android:text="email.vssic.gov.vn" />
+            android:text="smtp.vss.gov.vn" />
 
     </LinearLayout>
 
